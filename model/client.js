@@ -25,7 +25,8 @@ const ClientSchema = new Schema({
   },
   currentStatus: {
     type: Number,
-    required: true
+    required: true,
+    default: 1
   },
   description: {
     brand: {

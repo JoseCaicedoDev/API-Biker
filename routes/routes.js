@@ -3,6 +3,9 @@ const Client = require('../controllers/controllerClient')
 
 const api = express.Router()
 
-api.get('/', Client.Clients)
+api.post('/', Client.createClients)
+api.get('/', Client.ClientsByEmail)
+api.get('/tickets', Client.ClientsByTicket)
+api.get('/date-reception', Client.ClientsByDateReception)
 
 module.exports = api
