@@ -21,4 +21,4 @@ const mechanicSchema = new Schema({
   }
 })
 
-module.export = mongoose.model('Mechanic', mechanicSchema)
+module.exports = mongoose.model('Mechanic', mechanicSchema)
