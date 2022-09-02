@@ -18,5 +18,6 @@ api.get('/list', ReplacementList.ProductsByMark)
 api.get('/list-price', ReplacementList.ProductsByPrice)
 api.get('/list-amount', ReplacementList.ProductsByAmount)
 api.put('/list-update', ReplacementList.updateProducts)
+api.delete('/list-delete', ReplacementList.deleteProducts)
 
 module.exports = api

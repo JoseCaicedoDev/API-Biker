@@ -30,9 +30,9 @@ async function createReplacementList (req, res) {
 
 async function ProductsByMark (req, res) {
   try {
-    const client = await ReplacementList.find().sort({ brand: 'asc' })
+    const product = await ReplacementList.find().sort({ brand: 'asc' })
 
-    res.status(200).send(client)
+    res.status(200).send(product)
   } catch (err) {
     res.status(500).json({ msg: err.message })
   }
@@ -40,9 +40,9 @@ async function ProductsByMark (req, res) {
 
 async function ProductsByPrice (req, res) {
   try {
-    const client = await ReplacementList.find().sort({ price: 'asc' })
+    const product = await ReplacementList.find().sort({ price: 'asc' })
 
-    res.status(200).send(client)
+    res.status(200).send(product)
   } catch (err) {
     res.status(500).json({ msg: err.message })
   }
@@ -50,9 +50,9 @@ async function ProductsByPrice (req, res) {
 
 async function ProductsByAmount (req, res) {
   try {
-    const client = await ReplacementList.find().sort({ amount: 'desc' })
+    const product = await ReplacementList.find().sort({ amount: 'desc' })
 
-    res.status(200).send(client)
+    res.status(200).send(product)
   } catch (err) {
     res.status(500).json({ msg: err.message })
   }
@@ -73,10 +73,28 @@ async function updateProducts (req, res) {
     res.status(500).json({ msg: err.message })
   }
 }
+
+async function deleteProducts (req, res) {
+  const idProduct = req.body._id
+
+  const deleteProduct = await ReplacementList.findByIdAndDelete(idProduct)
+
+  try {
+    if (!deleteProduct) {
+      res.status(400).json({ msg: 'Error at delete moment' })
+    } else {
+      res.status(200).json({ msg: 'Product Deleted' })
+    }
+  } catch (err) {
+    res.status(500).json({ msg: err.message })
+  }
+}
+
 module.exports = {
   createReplacementList,
   ProductsByMark,
   ProductsByPrice,
   ProductsByAmount,
-  updateProducts
+  updateProducts,
+  deleteProducts
 }
