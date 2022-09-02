@@ -1,20 +1,21 @@
+require("dotenv").config()
 const Client = require('../model/client')
-const dotenv = require('dotenv')
+const mongoose = require('mongoose')
 
-dotenv.config()
 
-async function Clientt (req, res) {
+
+async function Clients (req, res) {
   try {
     const client = await Client.find()
 
-    restart.status(200).send(client)
+    res.status(200).send(client)
 
   }catch (err){
-    res.status(500).send(err)
+    res.status(500).json({msg: err.message})
   }
 }
 
 module.exports = {
-  Clientt
+  Clients
 }
 

@@ -3,6 +3,6 @@ const Client = require('../controllers/controllerClient')
 
 const api = express.Router()
 
-api.get('/', Client.Client)
+api.get('/', Client.Clients)
 
 module.exports = api
