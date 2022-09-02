@@ -73,12 +73,24 @@ async function ClientsByDateReception (req, res) {
   }
 }
 
+async function ClientsByStatus (req, res) {
+  try {
+    const client = await Client.find().sort({currentStatus: 'asc'})
+
+    res.status(200).send(client)
+
+  }catch (err){
+    res.status(500).json({msg: err.message})
+  }
+}
+
 
 
 module.exports = {
   createClients,
   ClientsByEmail,
   ClientsByTicket,
-  ClientsByDateReception
+  ClientsByDateReception,
+  ClientsByStatus
 }
 
