@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const ClientSchema = new Schema({
   ticketID: {
-    type: Number,
+    type: String,
     required: true
   },
   name: {

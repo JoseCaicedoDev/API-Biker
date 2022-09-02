@@ -4,9 +4,11 @@ const Client = require('../controllers/controllerClient')
 const api = express.Router()
 
 api.post('/', Client.createClients)
-api.get('/', Client.ClientsByEmail)
+api.get('/', Client.ClientsByDateReception)
+api.get('/email', Client.ClientsByEmail)
 api.get('/tickets', Client.ClientsByTicket)
-api.get('/date-reception', Client.ClientsByDateReception)
 api.get('/status', Client.ClientsByStatus)
+api.put('/', Client.updateClient)
+api.delete('/', Client.deleteClient)
 
 module.exports = api
