@@ -30,7 +30,7 @@ const replacementList = new Schema({
   url: {
     type: String,
     required: true,
-    default: '/img/default/:u'
+    default: '../../resources/images/Ellipse6.png'
   },
   type: {
     type: Number,
